@@ -9,6 +9,7 @@ function handleClick() {
   fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
     .then((res) => res.json())
     .then((data) => {
+      drawBtn.classList.remove("disabled")
       remainingCards.textContent = `Remaining cards: ${data.remaining} `
       console.log(data);
       deckID = data.deck_id;
@@ -30,6 +31,10 @@ function drawCards() {
       `      
      const winnerText = determineCardWinner(data.cards[0], data.cards[1])
      resultText.textContent = winnerText
+     if (data.remaining === 0){
+      drawBtn.disabled = true;
+      drawBtn.classList.add("disabled")
+     }
     });
 }
 newDeckBtn.addEventListener("click", handleClick);
