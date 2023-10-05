@@ -29,6 +29,15 @@ button#new-deck{
     align-self: flex-start;
     padding: 5px;
 }
+div.top {
+    display: flex;
+    align-self: self-start;
+    align-self: baseline;
+}
+div.top > p {
+    margin: 0;
+    margin-left: 10px;
+}
 div.cards-slot{
     border: 1px solid white;
     border-radius: 5px;

@@ -1,13 +1,15 @@
+let deckID = "";
 const newDeckBtn = document.getElementById("new-deck");
 const drawBtn = document.getElementById("draw-cards");
 const cardsContainer = document.getElementById("cards-container")
-let resultText = document.getElementById("result-text")
-let deckID = "";
+const resultText = document.getElementById("result-text")
+const remainingCards = document.getElementById("remaining")
 
 function handleClick() {
   fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
     .then((res) => res.json())
     .then((data) => {
+      remainingCards.textContent = `Remaining cards: ${data.remaining} `
       console.log(data);
       deckID = data.deck_id;
     });
@@ -18,6 +20,7 @@ function drawCards() {
   fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckID}/draw/?count=2`)
     .then((res) => res.json())
     .then((data) => {
+      remainingCards.textContent = `Remaining cards: ${data.remaining} `
       console.log(data);
       cardsContainer.children[0].innerHTML = `
       <img src=${data.cards[0].image} class= "cards" />
