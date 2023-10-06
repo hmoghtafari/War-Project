@@ -38,6 +38,13 @@ function drawCards() {
      if (data.remaining === 0){
       drawBtn.disabled = true;
       drawBtn.classList.add("disabled")
+      if (myScore > computerScore){
+        resultText.textContent = "You won the game!"
+      } else if (myScore < computerScore){
+        resultText.textContent = "The Computer won the game!"
+      } else {
+        resultText.textContent = "It's a tie game!"
+      }
      }
     });
 }
@@ -60,7 +67,7 @@ function determineCardWinner(card1,card2){
     myScore++
     myScoreEl.textContent = `Your Score: ${myScore}`
     // console.log("Card 2 wins!")
-    return "You wins!"
+    return "You win!"
   } else {
       // console.log("It's a tie!")
       return "It's a tie!"
