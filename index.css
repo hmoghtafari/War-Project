@@ -2,10 +2,11 @@ html, body {
     margin: 0;
     padding: 0;
     background-image: url("Images/table.png");
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
     font-family: "Exo 2", sans-serif;
     width: 612px;
-    height: 408px;
+    height: 100vh;
 
 }
 body{
@@ -15,6 +16,9 @@ body{
     align-items: center;
     color: white;
 
+}
+h2 {
+    margin: 5px;
 }
 button{
     background-color: #fff100;
@@ -46,7 +50,7 @@ div.cards-slot{
     width: calc(120px * 5 / 7);
 }
 div.cards-slot:nth-of-type(1){
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 .cards{
     width: 100%;
